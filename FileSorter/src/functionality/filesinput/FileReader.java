@@ -13,7 +13,8 @@ public class FileReader {
 	public void sort() {
 		File[] fileList = sourceFile.listFiles();
 		for (int i = 0; i < fileList.length; i++) {
-			File destFolder = new File(sourceFile, fileList[i].getName().substring(0, 5));
+			int ind = fileList[i].getName().indexOf('.');
+			File destFolder = new File(sourceFile, fileList[i].getName().substring(0, ind));
 			if (!destFolder.exists()) {
 				destFolder.mkdirs();
 			}
